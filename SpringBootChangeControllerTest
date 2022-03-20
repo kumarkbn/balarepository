@@ -3,10 +3,37 @@
 public class SpringBootChangeControllerTest{
 
 @InjectMocks
-private SpringBootChangeController springBootChangeControllerTest
+private SpringBootChangeController springBootChangeController;
+
+@Before
+public void setup(){
+springBootChangeController= new SpringBootChangeController();
+}
 
 @Test
 public void testGetChangeForGivenPrice(){
+
+springBootChangeControllerTest.changeForBill(50,30);
+
+}
+
+@Test
+public void testGetChangeForNullValues(){
+
+springBootChangeControllerTest.changeForBill(null,null);
+
+}
+
+@Test
+public void testGetChangeForNoChangeNecessary(){
+
+springBootChangeControllerTest.changeForBill(100,100);
+
+}
+@Test
+public void testGetChangeForNotEnoughMoney(){
+
+springBootChangeControllerTest.changeForBill(30,50);
 
 }
 
