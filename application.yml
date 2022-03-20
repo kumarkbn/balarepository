@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: adp-example
+numberofcoins:
+  nickle: 100
+  dime: 100
+  quarter: 100
+  penny: 100
