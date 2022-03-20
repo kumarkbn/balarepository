@@ -1,0 +1,13 @@
+
+@RunWith(MockitoJunitRunner.class)
+public class SpringBootChangeControllerTest{
+
+@InjectMocks
+private SpringBootChangeController springBootChangeControllerTest
+
+@Test
+public void testGetChangeForGivenPrice(){
+
+}
+
+}
