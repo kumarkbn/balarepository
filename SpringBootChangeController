@@ -54,12 +54,10 @@ private String numberofPennycoins;
             int pennies = change;
            change.append(pennies + " penny coin(s)");
         }
-        if (provided < price) { // this statement is saying that if the customer
-            // doesn't pay enough, it will tell the user
+        if (provided < price) { 
             change.append("Not enough money!");
         } else if (provided == price) { // this statement says if the amount
-            // provided matches the price, then
-            // there is no change necessary
+           
           change.append("No change is necessary!");
         }
     log.info("change.toString()::: {}",change.toString());
