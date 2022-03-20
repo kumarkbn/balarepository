@@ -8,6 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/changeForBill")
 public class SpringBootChangeController {
 
+@Value("${numberofCoins.nickle}")
+private String numberofNicklecoins;
+
+@Value("${numberofCoins.dime}")
+private String numberofDimecoins;
+
+@Value("${numberofCoins.quarter}")
+private String numberofQuartercoins;
+
+@Value("${numberofCoins.pennys}")
+private String numberofPennycoins;
+
+
  @GetMapping(value="/getChange/{price}/{providedAmount},produces=MediaType.APPLICATION_JSON_VALUE)
   String changeForBill(@PathVariable("price") int price,@PathVariable("providedAmount") int providedAmount) throws Exception {
   StringBuilder change= new StringBuilder();
