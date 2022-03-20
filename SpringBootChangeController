@@ -1,1 +1,51 @@
 
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@RestController
+@RequestMapping("/changeForBill")
+public class SpringBootChangeController {
+
+ @GetMapping(value="/getChange/{price}/{providedAmount},produces=MediaType.APPLICATION_JSON_VALUE)
+  String changeForBill(@PathVariable("price") int price,@PathVariable("providedAmount") int providedAmount) throws Exception {
+  StringBuilder change= new StringBuilder();
+  
+   price = (int) Math.round(price * 100);
+    provided = (int) Math.round(providedAmount * 100);
+    
+     if (provided > price) {
+          
+            int quarters = change / 25;
+            if (quarters > 0) {
+                change = change % 25;
+                change.append(quarters + " quarter coin(s)");
+            }
+            
+            int dimes = change / 10;
+            if (dimes > 0) {
+                change = change % 10;
+                change.append(dimes + " dime coin(s)");
+            }
+            
+            int nickels = change / 5;
+            if (nickels > 0) {
+                change = change % 5;
+                change.append(nickels + " nickel coin(s)");
+            }
+            int pennies = change;
+           change.append(pennies + " penny coin(s)");
+        }
+        if (provided < price) { // this statement is saying that if the customer
+            // doesn't pay enough, it will tell the user
+            change.append("Not enough money!");
+        } else if (provided == price) { // this statement says if the amount
+            // provided matches the price, then
+            // there is no change necessary
+          change.append("No change is necessary!");
+        }
+    return change.toString();
+  }
+
+}
