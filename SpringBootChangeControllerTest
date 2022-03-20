@@ -13,7 +13,10 @@ springBootChangeController= new SpringBootChangeController();
 @Test
 public void testGetChangeForGivenPrice(){
 
-springBootChangeControllerTest.changeForBill(50,30);
+String response=springBootChangeControllerTest.changeForBill(50,30);
+Assert.assertEquals("",);
+Assert.NotNull(response);
+
 
 }
 
